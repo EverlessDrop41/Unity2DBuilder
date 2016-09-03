@@ -15,5 +15,10 @@ namespace TwoDBuilder.Level
             X = x;
             Y = y;
         }
+
+        public override string ToString()
+        {
+            return string.Format("X: {0}, Y:{1}", X, Y);
+        }
     }
 }

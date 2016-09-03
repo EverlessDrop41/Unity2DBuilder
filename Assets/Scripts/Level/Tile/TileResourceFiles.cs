@@ -7,7 +7,7 @@ namespace TwoDBuilder.Level.Tile
 {
     public static class TileResourceFileNames
     {
-        public static string DefaultTile = "DefaultTile";
-        public static string TransparrentTile = "TransparrentTile";
+        public const string DEFAULT_TILE = "Tiles/DefaultTile";
+        public const string TRANSPARENT_TILE = "Tiles/TransparrentTile";
     }
 }

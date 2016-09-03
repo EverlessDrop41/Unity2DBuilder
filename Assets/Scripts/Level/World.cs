@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using TwoDBuilder.Level.Tile;
 
 namespace TwoDBuilder.Level
@@ -13,7 +14,7 @@ namespace TwoDBuilder.Level
         Grid<BaseTile> ItemLevel = new Grid<BaseTile>(
             name: "ItemGrid", 
             depth: 1,
-            defaultTileResource: TileResourceFileNames.TransparrentTile);
+            defaultTileResource: TileResourceFileNames.TRANSPARENT_TILE);
 
         public GridPosition center = new GridPosition(5, 5);
 
@@ -22,6 +23,19 @@ namespace TwoDBuilder.Level
             center = new GridPosition(rows / 2, columns / 2);
             BaseLevel.Initialize(rows, columns);
             ItemLevel.Initialize(rows, columns);
+        }
+
+        public GridPosition GetGridPositionFromWorld(Vector2 WorldPosition)
+        {
+            GridPosition pos = new GridPosition();
+            pos.X = Mathf.FloorToInt(WorldPosition.x);
+            pos.Y = Mathf.FloorToInt(WorldPosition.y);
+            return pos;
+        }
+
+        public Vector2 GetWorldPositionFromGrid(GridPosition pos)
+        {
+            return new Vector2(pos.X, pos.Y);
         }
     }
 }

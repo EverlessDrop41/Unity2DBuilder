@@ -12,9 +12,9 @@ namespace TwoDBuilder.Level
         List<List<GameObject>> _grid;
         public float depth = 0f;
         public string name = "Grid";
-        public string defaultTileResource = BaseTile.DEFAULT_TILE_RESOURCE_NAME;
+        public string defaultTileResource;
 
-        public Grid(string name = "Grid", float depth = 0f, string defaultTileResource = BaseTile.DEFAULT_TILE_RESOURCE_NAME) {
+        public Grid(string name = "Grid", float depth = 0f, string defaultTileResource = TileResourceFileNames.DEFAULT_TILE) {
             this.name = name;
             this.depth = depth * -1;
             this.defaultTileResource = defaultTileResource;

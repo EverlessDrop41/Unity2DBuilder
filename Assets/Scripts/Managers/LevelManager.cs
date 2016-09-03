@@ -2,7 +2,8 @@
 using System.Collections;
 using TwoDBuilder.Level;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
     private static LevelManager _instance = null;
 
@@ -10,6 +11,8 @@ public class LevelManager : MonoBehaviour {
     {
         get { return _instance; }
     }
+
+    World activeWorld;
 
     // Use this for initialization
     void Awake()
@@ -28,7 +31,17 @@ public class LevelManager : MonoBehaviour {
 
     public World MakeNew()
     {
-        return new World();
+        activeWorld = new World();
+        return activeWorld;
+    }
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log(activeWorld.GetGridPositionFromWorld(mouseWorldPos));
+        }
     }
 
     void OnDestroy()

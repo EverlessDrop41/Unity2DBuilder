@@ -2,11 +2,13 @@
 using System.Collections;
 using TwoDBuilder.Level;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     private static GameManager _instance = null;
 
-    public static GameManager Instance {
+    public static GameManager Instance
+    {
         get { return _instance; }
     }
 
@@ -46,8 +48,10 @@ public class GameManager : MonoBehaviour {
         return Instantiate(obj, Position, Rotation) as GameObject;
     }
 
-    void  OnDestroy() {
-        if (this == _instance) {
+    void OnDestroy()
+    {
+        if (this == _instance)
+        {
             _instance = null;
         }
     }

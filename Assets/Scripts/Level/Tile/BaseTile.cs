@@ -6,8 +6,6 @@ namespace TwoDBuilder.Level.Tile
     [RequireComponent(typeof(SpriteRenderer))]
     public class BaseTile : MonoBehaviour
     {
-        public const string DEFAULT_TILE_RESOURCE_NAME = "DefaultTile"; 
-
         public GridPosition Position = new GridPosition(0,0);
         public TileSize Size;// = new TileSize(1,1);
 
@@ -16,9 +14,9 @@ namespace TwoDBuilder.Level.Tile
 
         SpriteRenderer _sr;
 
-        public string tileResourceFile = DEFAULT_TILE_RESOURCE_NAME;
+        public string tileResourceFile;
 
-        public BaseTile(string tileResourceFile = DEFAULT_TILE_RESOURCE_NAME)
+        public BaseTile(string tileResourceFile = TileResourceFileNames.DEFAULT_TILE)
         {
             this.tileResourceFile = tileResourceFile;
         }
