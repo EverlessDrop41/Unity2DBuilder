@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
 
         World level = LevelManager.Instance.MakeNew();
-        level.Initialize(100, 80);
+        level.Initialize(10, 10);
         Camera.main.transform.position = new Vector3(level.center.X, level.center.Y, Camera.main.transform.position.z);
     }
 

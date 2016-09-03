@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using TwoDBuilder.Level;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance
     {
         get { return _instance; }
+    }
+
+    public static World ActiveWorld
+    {
+        get { return _instance.activeWorld; }
     }
 
     World activeWorld;

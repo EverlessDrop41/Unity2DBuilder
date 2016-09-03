@@ -55,5 +55,12 @@ namespace TwoDBuilder.Level
             //TODO: Add checks for safer usage
             return _grid[position.X][position.Y].GetComponent<Tile>();
         }
+
+        public TileSize GetSize()
+        {
+            int width = _grid.Count;
+            int height = _grid[0].Count;
+            return new TileSize(width, height);
+        }
     }
 }

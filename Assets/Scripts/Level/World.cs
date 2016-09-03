@@ -37,5 +37,10 @@ namespace TwoDBuilder.Level
         {
             return new Vector2(pos.X, pos.Y);
         }
+
+        public TileSize GetSize()
+        {
+            return BaseLevel.GetSize();
+        }
     }
 }
