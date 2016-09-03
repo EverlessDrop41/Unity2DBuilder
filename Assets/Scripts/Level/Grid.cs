@@ -14,7 +14,7 @@ namespace TwoDBuilder.Level
         public string name = "Grid";
         public string defaultTileResource;
 
-        public Grid(string name = "Grid", float depth = 0f, string defaultTileResource = TileResourceFileNames.DEFAULT_TILE) {
+		public Grid(string name = "Grid", float depth = 0f, string defaultTileResource = TileResourceFileNames.DEFAULT_TILE) {
             this.name = name;
             this.depth = depth * -1;
             this.defaultTileResource = defaultTileResource;
@@ -44,11 +44,23 @@ namespace TwoDBuilder.Level
             Debug.LogFormat("Grid Creation Time: {0} seconds", generatorTimer.Elapsed.TotalSeconds);
         }
 
-        public void PlaceTile<TileType>(GridPosition atPosition, TileType Tile) where TileType : BaseTile
+		public TileType PlaceTile<TileType>(GridPosition atPosition, string tileSpriteName = TileResourceFileNames.DEFAULT_TILE) where TileType : BaseTile
         {
             var oldTile = _grid[atPosition.X][atPosition.Y];
-            UnityEngine.Object.Destroy(oldTile);
-            //_grid[atPosition.X][atPosition.Y] = Tile;
+			string oldTileName = oldTile.name;
+            
+			UnityEngine.Object.Destroy(oldTile);
+
+			GameObject obj = new GameObject(oldTileName);
+			TileType t = obj.AddComponent<TileType>();
+			t.tileResourceFile = tileSpriteName;
+			t.Position = atPosition;
+			t.Size = new TileSize (1, 1);
+			obj.transform.position = new Vector3 (atPosition.X, atPosition.Y, depth);
+			obj.transform.parent = LevelManager.Instance.transform;
+            _grid[atPosition.X][atPosition.Y] = obj;
+
+			return t;
         }
 
         public GameObject GetGameObjectAtPoint(GridPosition position)

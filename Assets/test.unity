@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ba387d369910a4db360951ab4e5f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridColour: {r: 1, g: 1, b: 1, a: 0.253}
+  GridColour: {r: 1, g: 1, b: 1, a: 0.634}
 --- !u!1 &873913044
 GameObject:
   m_ObjectHideFlags: 0

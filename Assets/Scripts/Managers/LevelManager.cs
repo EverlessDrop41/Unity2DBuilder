@@ -4,6 +4,8 @@ using System.Linq;
 using TwoDBuilder.Level;
 using System.Collections.Generic;
 
+using TwoDBuilder.Level.Tile;
+
 public class LevelManager : MonoBehaviour
 {
 
@@ -47,6 +49,8 @@ public class LevelManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			GridPosition pos = activeWorld.GetGridPositionFromWorld(mouseWorldPos);
+			activeWorld.PlaceTile(pos, TileResourceFileNames.WOOD_TILE);
             Debug.Log(activeWorld.GetGridPositionFromWorld(mouseWorldPos));
         }
     }

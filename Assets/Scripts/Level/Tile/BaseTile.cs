@@ -7,22 +7,29 @@ namespace TwoDBuilder.Level.Tile
     public class BaseTile : MonoBehaviour
     {
         public GridPosition Position = new GridPosition(0,0);
-        public TileSize Size;// = new TileSize(1,1);
+        public TileSize Size = new TileSize(1,1);
 
         //public WorldGrid grid;
         public Texture2D TileTexture;
 
         SpriteRenderer _sr;
 
-        public string tileResourceFile;
+		public string tileResourceFile;
 
-        public BaseTile(string tileResourceFile = TileResourceFileNames.DEFAULT_TILE)
+		public BaseTile(string tileResourceFile = TileResourceFileNames.DEFAULT_TILE)
         {
             this.tileResourceFile = tileResourceFile;
+			if (Size == null) {
+				Size = new TileSize (1, 1);
+			}
         }
 
         public void Start()
         {
+			if (Size == null) {
+				Size = new TileSize (1, 1);
+			}
+
             _sr = GetComponent<SpriteRenderer>();
 
             if (TileTexture == null)
