@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using TwoDBuilder.Level;
+using TwoDBuilder.Level.Tile;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     {
         get { return _instance; }
     }
+
+    public TileSize GridSize = new TileSize(20,20);
 
     // Use this for initialization
     void Awake()
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
         }
 
         World level = LevelManager.Instance.MakeNew();
-        level.Initialize(10, 10);
+        level.Initialize(GridSize.Width, GridSize.Height);
         Camera.main.transform.position = new Vector3(level.center.X, level.center.Y, Camera.main.transform.position.z);
     }
 

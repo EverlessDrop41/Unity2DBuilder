@@ -6,7 +6,7 @@ using TwoDBuilder.Level;
 public class GridDrawer : MonoBehaviour
 {
 
-    static Material lineMaterial;
+    public static Material lineMaterial;
     static void CreateLineMaterial()
     {
         if (!lineMaterial)
@@ -26,6 +26,8 @@ public class GridDrawer : MonoBehaviour
         }
     }
 
+    public Color GridColour = Color.white;
+
     const float Z_DRAW = -3f;
 
     public void OnRenderObject()
@@ -43,6 +45,8 @@ public class GridDrawer : MonoBehaviour
         GL.MultMatrix(transform.localToWorldMatrix);
 
         GL.Begin(GL.LINES);
+
+        GL.Color(GridColour);
 
         for (int x = 0; x < size.Width; x++)
         {

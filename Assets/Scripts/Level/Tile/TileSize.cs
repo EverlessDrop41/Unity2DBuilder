@@ -3,6 +3,7 @@
     /// <summary>
     /// The amount of space a tile takes up in terms of the grid and not in pixels
     /// </summary>
+    [System.Serializable]
     public class TileSize
     {
         public int Width = 1;
