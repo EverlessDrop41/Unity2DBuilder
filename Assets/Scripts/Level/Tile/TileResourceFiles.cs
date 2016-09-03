@@ -9,5 +9,6 @@ namespace TwoDBuilder.Level.Tile
     {
         public const string DEFAULT_TILE = "Tiles/DefaultTile";
         public const string TRANSPARENT_TILE = "Tiles/TransparrentTile";
+        public const string WOOD_TILE = "Tiles/WoodTile";
     }
 }

@@ -44,6 +44,13 @@ namespace TwoDBuilder.Level
             Debug.LogFormat("Grid Creation Time: {0} seconds", generatorTimer.Elapsed.TotalSeconds);
         }
 
+        public void PlaceTile<TileType>(GridPosition atPosition, TileType Tile) where TileType : BaseTile
+        {
+            var oldTile = _grid[atPosition.X][atPosition.Y];
+            UnityEngine.Object.Destroy(oldTile);
+            //_grid[atPosition.X][atPosition.Y] = Tile;
+        }
+
         public GameObject GetGameObjectAtPoint(GridPosition position)
         {
             return _grid[position.X][position.Y];

@@ -38,6 +38,11 @@ namespace TwoDBuilder.Level
             return new Vector2(pos.X, pos.Y);
         }
 
+        //public TileType PlaceTile<TileType> (GridPosition atPosition)
+        //{
+        //    return null;// BaseLevel.PlaceTile<TileType>(atPosition);
+       // }
+
         public TileSize GetSize()
         {
             return BaseLevel.GetSize();
